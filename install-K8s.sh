@@ -53,11 +53,31 @@ kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-bind-port=6443 > /kub
 mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
-sleep 1
+sleep 5
 echo "COMPLETED"
+echo "."
+echo "."
+echo "."
+echo "Now some finetuning by Jay"
+echo "."
+echo "Enabling you to run kubectl commands as ubuntu user & run docker without sudo"
+echo "."
+sleep 5
+
+su ubuntu
+sudo mv /root/.kube $HOME/.kube
+sudo chown -R $USER $HOME/.kube
+sudo chgrp -R $USER $HOME/.kube
+sudo su
+su ubuntu
+sudo usermod -aG docker ${USER}
+id -nG
+sudo su
+su ubuntu
+
 #### FINISH 
 
-## Thanks to my good friend Giri: https://github.com/learnbyseven
+## Thanks to my good friend Giriraj: https://github.com/learnbyseven
 
 ## FOR ADDING NODE
 ## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/add_node_k8.sh | bash 
