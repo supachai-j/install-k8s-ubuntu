@@ -1,6 +1,6 @@
 ## Run the following as root
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/install-K8s.sh | bash 
+## curl -s https://raw.githubusercontent.com/jay-nginx/install-k8s-ubuntu/main/install-K8s.sh | bash 
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
