@@ -64,16 +64,16 @@ echo "Enabling you to run kubectl commands as ubuntu user & run docker without s
 echo "."
 sleep 5
 
-su ubuntu
+su vagrant
 sudo mv /root/.kube $HOME/.kube
 sudo chown -R $USER $HOME/.kube
 sudo chgrp -R $USER $HOME/.kube
 sudo su
-su ubuntu
+su vagrant
 sudo usermod -aG docker ${USER}
 id -nG
 sudo su
-su ubuntu
+su vagrant
 
 #### FINISH 
 
