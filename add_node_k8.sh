@@ -1,5 +1,5 @@
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/add_node_k8.sh | bash 
+## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/add_node_k8.sh | bash 
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
