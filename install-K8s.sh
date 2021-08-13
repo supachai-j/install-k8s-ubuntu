@@ -49,7 +49,7 @@ apt-get update
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 apt-get install -y kubelet kubeadm kubectl
 swapoff -a
-kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-bind-port=6443 > /kub.txt
+kubeadm init --pod-network-cidr 10.224.0.0/16 --apiserver-bind-port=6443 > /kub.txt
 mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
