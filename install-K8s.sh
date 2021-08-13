@@ -65,7 +65,7 @@ echo "."
 sleep 5
 
 su vagrant
-sudo mv /root/.kube $HOME/.kube
+sudo cp -r /root/.kube $HOME
 sudo chown -R $USER $HOME/.kube
 sudo chgrp -R $USER $HOME/.kube
 sudo su
