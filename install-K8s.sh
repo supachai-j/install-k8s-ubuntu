@@ -52,7 +52,7 @@ swapoff -a
 kubeadm init --pod-network-cidr 10.224.0.0/16 --apiserver-bind-port=6443 > /kub.txt
 mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
-kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 sleep 5
 echo "COMPLETED"
 echo "."
