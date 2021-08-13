@@ -1,6 +1,6 @@
 ## Run the following as root
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/jay-nginx/install-k8s-ubuntu/main/install-K8s.sh | bash 
+## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/install-K8s.sh | bash 
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
@@ -80,6 +80,6 @@ su vagrant
 ## Thanks to my good friend Giriraj: https://github.com/learnbyseven
 
 ## FOR ADDING NODE
-## curl -s https://raw.githubusercontent.com/learnbyseven/KUBERNETES-TRAINING/master/add_node_k8.sh | bash 
+## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/add_node_k8.sh | bash 
 
 
