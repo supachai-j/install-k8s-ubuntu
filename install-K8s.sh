@@ -43,12 +43,20 @@ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 sleep 1 
+swapoff -a
 apt-get update
 ##Workaround to disable swap on Linux host 
 #sed -i -e '2s/^/#/' /etc/fstab
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
-apt-get install -y kubelet kubeadm kubectl
-swapoff -a
+# apt-get install -y kubelet kubeadm kubectl
+
+if [ -z "$1" ]
+then
+   apt-get install -y kubelet kubeadm kubectl
+else
+   sudo apt-get install -qy kubelet=$1 kubectl=$1 kubeadm=$1
+fi
+
 kubeadm init --pod-network-cidr 10.224.0.0/16 --apiserver-bind-port=6443 > /kub.txt
 mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
