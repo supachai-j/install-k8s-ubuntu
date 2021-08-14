@@ -46,8 +46,18 @@ apt-get update
 ##Workaround to disable swap on Linux host 
 #sed -i -e '2s/^/#/' /etc/fstab
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
-apt-get install -y kubelet kubeadm kubectl
+# apt-get install -y kubelet kubeadm kubectl
 swapoff -a
+
+# Check available K8s version.
+# curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binary-amd64/Packages | grep Version | awk '{print $2}'
+
+if [ -z "$1" ]
+then
+   apt-get install -y kubelet kubeadm kubectl
+else
+   sudo apt-get install -qy kubelet=$1 kubectl=$1 kubeadm=$1
+fi
 
 
 ## After running add_node_k8.sh on worker node 
