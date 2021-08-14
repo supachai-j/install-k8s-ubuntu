@@ -1,5 +1,7 @@
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/add_node_k8.sh | bash 
+## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/add_node_k8.sh | bash -s "1.16.7-00"
+# Check available K8s version.
+# curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binary-amd64/Packages | grep Version | awk '{print $2}'
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
@@ -48,9 +50,6 @@ apt-get update
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 # apt-get install -y kubelet kubeadm kubectl
 swapoff -a
-
-# Check available K8s version.
-# curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binary-amd64/Packages | grep Version | awk '{print $2}'
 
 if [ -z "$1" ]
 then
