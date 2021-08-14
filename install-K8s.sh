@@ -1,6 +1,8 @@
 ## Run the following as root
 ## Execute using 
-## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/install-K8s.sh | bash 
+## curl -s https://raw.githubusercontent.com/supachai-j/install-k8s-ubuntu/main/install-K8s.sh | bash -s "1.16.7-00"
+## You can check available kubernetes version
+## curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binary-amd64/Packages | grep Version | awk '{print $2}'
 
 #!/bin/bash
 echo "Kubernetes vanilla installation begins using KubeADM"
