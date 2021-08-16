@@ -45,7 +45,9 @@ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 sleep 1 
+#Disable swap
 swapoff -a
+sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 apt-get update
 ##Workaround to disable swap on Linux host 
 #sed -i -e '2s/^/#/' /etc/fstab
