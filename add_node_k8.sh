@@ -50,6 +50,7 @@ apt-get update
 echo "KUBERNETES DEFAULT PACKAGE INSTALLATION BEGINS"
 # apt-get install -y kubelet kubeadm kubectl
 swapoff -a
+sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 if [ -z "$1" ]
 then
